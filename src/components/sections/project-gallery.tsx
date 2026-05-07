@@ -30,12 +30,14 @@ export function ProjectGallery({
 		<MotionSection className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
 			<div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
 				<div>
-					<h2 className="font-heading text-3xl font-semibold sm:text-4xl">{title}</h2>
+					<h2 className="comic-title font-heading text-4xl font-black uppercase sm:text-5xl">
+						{title}
+					</h2>
 					<p className="mt-3 max-w-2xl text-sm leading-6 text-muted-foreground">{description}</p>
 				</div>
 				<Link
 					href="/projects"
-					className="inline-flex h-10 items-center justify-center gap-2 rounded-full border border-border bg-background px-4 text-sm font-semibold transition-colors hover:bg-secondary"
+					className="comic-button inline-flex h-10 items-center justify-center gap-2 bg-background px-4 text-sm font-black uppercase"
 				>
 					View all projects
 					<HugeiconsIcon icon={ArrowUpRight02Icon} strokeWidth={2} />
@@ -45,36 +47,42 @@ export function ProjectGallery({
 			<div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
 				{projects.map((project, index) => (
 					<MotionCard key={project.slug}>
-						<Card className="h-full rounded-2xl">
+						<Card className="comic-panel h-full rounded-none">
 							<CardHeader>
 								<div className="flex items-center justify-between gap-3">
-									<Badge variant={project.status === "live" ? "default" : "secondary"}>
+									<Badge
+										className="border-2 border-foreground font-black uppercase"
+										variant={project.status === "live" ? "default" : "secondary"}
+									>
 										{project.status}
 									</Badge>
-									<span className="font-mono text-xs text-muted-foreground">
+									<span className="comic-panel-soft rotate-2 px-2 py-1 font-mono text-xs text-muted-foreground">
 										EP {String(index + 1).padStart(2, "0")}
 									</span>
 								</div>
-								<CardTitle className="text-xl">{project.title}</CardTitle>
+								<CardTitle className="font-heading text-2xl font-black uppercase leading-tight">
+									{project.title}
+								</CardTitle>
 								<CardDescription>{project.summary}</CardDescription>
 							</CardHeader>
 							<CardContent className="flex flex-col gap-5">
-								<div className="aspect-video rounded-2xl border border-border bg-secondary p-4">
-									<div className="flex h-full flex-col justify-between rounded-xl bg-background p-4">
+								<div className="aspect-video rounded-[1rem] border-2 border-foreground bg-secondary p-4 shadow-[5px_5px_0_var(--comic-ink)]">
+									<div className="relative flex h-full flex-col justify-between overflow-hidden rounded-xl border-2 border-foreground bg-background p-4">
+										<div className="absolute inset-0 opacity-60 halftone-dots" />
 										<div className="flex items-center justify-between">
-											<span className="font-mono text-xs text-muted-foreground">
+											<span className="relative font-mono text-xs text-muted-foreground">
 												{project.category}
 											</span>
-											<span className="size-2 rounded-full bg-primary" />
+											<span className="comic-pulse relative size-3 rounded-full bg-primary" />
 										</div>
-										<div className="font-heading text-2xl font-semibold leading-tight">
+										<div className="relative max-w-[14rem] font-heading text-3xl font-black uppercase leading-[0.95]">
 											{project.title}
 										</div>
 									</div>
 								</div>
 								<div className="flex flex-wrap gap-2">
 									{project.stack.slice(0, 4).map((item) => (
-										<Badge key={item} variant="outline">
+										<Badge key={item} className="border-2 border-foreground" variant="outline">
 											{item}
 										</Badge>
 									))}
@@ -83,7 +91,7 @@ export function ProjectGallery({
 							<CardFooter>
 								<Link
 									href={`/projects/${project.slug}`}
-									className="inline-flex h-9 items-center justify-center gap-2 rounded-full bg-foreground px-4 text-sm font-semibold text-background transition-transform hover:-translate-y-0.5"
+									className="comic-button inline-flex h-10 items-center justify-center gap-2 bg-foreground px-4 text-sm font-black uppercase text-background"
 								>
 									Open case file
 									<HugeiconsIcon icon={ArrowUpRight02Icon} strokeWidth={2} />
@@ -96,4 +104,3 @@ export function ProjectGallery({
 		</MotionSection>
 	);
 }
-

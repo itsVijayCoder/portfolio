@@ -17,13 +17,12 @@ export function MotionSection({ children, className, delay = 0 }: MotionSectionP
 	return (
 		<motion.section
 			className={cn("relative", className)}
-			initial={shouldReduceMotion ? false : { opacity: 0, y: 22 }}
-			whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
-			viewport={{ once: true, margin: "-80px" }}
-			transition={{ duration: 0.55, ease: "easeOut", delay }}
+			initial={shouldReduceMotion ? false : { opacity: 0, y: 28, rotate: -0.45, scale: 0.985 }}
+			whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0, rotate: 0, scale: 1 }}
+			viewport={{ once: true, margin: "-90px" }}
+			transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1], delay }}
 		>
 			{children}
 		</motion.section>
 	);
 }
-

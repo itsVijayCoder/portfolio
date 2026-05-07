@@ -1,8 +1,8 @@
 export const siteConfig = {
 	name: "Vijay",
-	title: "Vijay | Animated Developer Portfolio",
+	title: "Amazing Coder | Vijay",
 	description:
-		"A creative, animation-rich portfolio for frontend, full-stack, cloud, and product engineering work.",
+		"A sketchy comic-book portfolio for animation-rich frontend, full-stack, cloud, and product engineering work.",
 	url: "https://portfolio.local",
 	email: "hello@vijay.dev",
 	socials: {
@@ -10,4 +10,3 @@ export const siteConfig = {
 		linkedin: "https://www.linkedin.com",
 	},
 };
-

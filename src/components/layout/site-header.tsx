@@ -15,15 +15,17 @@ export function SiteHeader() {
 	const [menuOpen, setMenuOpen] = useState(false);
 
 	return (
-		<header className="sticky top-0 z-40 border-b border-border/70 bg-background/90 backdrop-blur-xl">
+		<header className="sticky top-0 z-40 border-b-2 border-foreground bg-background/92 backdrop-blur-xl">
 			<div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
 				<Link href="/" className="group flex items-center gap-3" onClick={() => setMenuOpen(false)}>
-					<div className="flex size-10 items-center justify-center rounded-2xl border border-foreground/10 bg-foreground text-background transition-transform group-hover:-rotate-3">
-						<span className="font-heading text-sm font-bold">VS</span>
+					<div className="comic-button flex size-10 items-center justify-center bg-foreground text-background transition-transform group-hover:-rotate-6">
+						<span className="font-heading text-sm font-black">AC</span>
 					</div>
 					<div className="leading-tight">
-						<div className="font-heading text-sm font-semibold">{siteConfig.name}</div>
-						<div className="font-mono text-xs text-muted-foreground">CodeToon Studios</div>
+						<div className="comic-wordmark font-heading text-sm font-black uppercase">
+							Amazing Coder
+						</div>
+						<div className="font-mono text-xs text-muted-foreground">{siteConfig.name} Studio</div>
 					</div>
 				</Link>
 
@@ -36,8 +38,9 @@ export function SiteHeader() {
 								key={item.href}
 								href={item.href}
 								className={cn(
-									"flex h-9 items-center gap-2 rounded-full px-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground",
-									active && "bg-foreground text-background hover:bg-foreground hover:text-background",
+									"flex h-9 items-center gap-2 rounded-full border-2 border-transparent px-3 text-sm font-black uppercase text-muted-foreground transition-all hover:-translate-y-0.5 hover:rotate-[-1deg] hover:border-foreground hover:bg-secondary hover:text-foreground hover:shadow-[3px_3px_0_var(--comic-ink)]",
+									active &&
+										"border-foreground bg-foreground text-background shadow-[3px_3px_0_var(--comic-red)] hover:bg-foreground hover:text-background",
 								)}
 							>
 								<HugeiconsIcon icon={item.icon} strokeWidth={2} />
@@ -50,13 +53,13 @@ export function SiteHeader() {
 				<div className="hidden items-center gap-2 md:flex">
 					<Link
 						href="/snippets"
-						className="inline-flex h-9 items-center justify-center rounded-full border border-border bg-background px-3 text-sm font-medium transition-colors hover:bg-secondary"
+						className="comic-button inline-flex h-9 items-center justify-center bg-background px-3 text-sm font-black uppercase"
 					>
 						Copy snippets
 					</Link>
 					<Link
 						href="/contact"
-						className="inline-flex h-9 items-center justify-center rounded-full bg-primary px-4 text-sm font-medium text-primary-foreground transition-transform hover:-translate-y-0.5"
+						className="comic-button inline-flex h-9 items-center justify-center bg-primary px-4 text-sm font-black uppercase text-primary-foreground"
 					>
 						Contact
 					</Link>
@@ -64,7 +67,7 @@ export function SiteHeader() {
 
 				<button
 					type="button"
-					className="inline-flex size-10 items-center justify-center rounded-full border border-border bg-background md:hidden"
+					className="comic-button inline-flex size-10 items-center justify-center bg-background md:hidden"
 					aria-label="Toggle navigation"
 					aria-expanded={menuOpen}
 					onClick={() => setMenuOpen((open) => !open)}
@@ -74,13 +77,13 @@ export function SiteHeader() {
 			</div>
 
 			{menuOpen ? (
-				<div className="border-t border-border bg-background px-4 py-4 md:hidden">
+				<div className="border-t-2 border-foreground bg-background px-4 py-4 md:hidden">
 					<nav className="mx-auto flex max-w-7xl flex-col gap-2" aria-label="Mobile navigation">
 						{navItems.map((item) => (
 							<Link
 								key={item.href}
 								href={item.href}
-								className="flex items-center gap-3 rounded-2xl px-3 py-3 text-sm font-medium text-muted-foreground hover:bg-secondary hover:text-foreground"
+								className="comic-panel-soft flex items-center gap-3 px-3 py-3 text-sm font-black uppercase text-muted-foreground hover:bg-secondary hover:text-foreground"
 								onClick={() => setMenuOpen(false)}
 							>
 								<HugeiconsIcon icon={item.icon} strokeWidth={2} />
@@ -93,4 +96,3 @@ export function SiteHeader() {
 		</header>
 	);
 }
-

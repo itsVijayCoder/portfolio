@@ -31,10 +31,14 @@ export function CopySnippetButton({ code, label = "Copy" }: CopySnippetButtonPro
 	};
 
 	return (
-		<Button type="button" size="sm" onClick={handleCopy}>
+		<Button
+			type="button"
+			size="sm"
+			className="comic-button font-black uppercase"
+			onClick={handleCopy}
+		>
 			<HugeiconsIcon icon={copied ? CopyCheckIcon : Copy01Icon} strokeWidth={2} data-icon="inline-start" />
 			{copied ? "Copied" : label}
 		</Button>
 	);
 }
-

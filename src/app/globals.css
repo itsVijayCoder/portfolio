@@ -49,38 +49,44 @@
 }
 
 :root {
-	--card: oklch(0.995 0.004 250);
-	--card-foreground: oklch(0.168 0.018 250);
-	--popover: oklch(0.995 0.004 250);
-	--popover-foreground: oklch(0.168 0.018 250);
-	--primary: oklch(0.63 0.19 248);
-	--primary-foreground: oklch(0.985 0.004 250);
-	--secondary: oklch(0.955 0.025 86);
-	--secondary-foreground: oklch(0.19 0.025 250);
-	--muted: oklch(0.95 0.009 250);
-	--muted-foreground: oklch(0.47 0.025 250);
-	--accent: oklch(0.86 0.16 86);
-	--accent-foreground: oklch(0.19 0.025 250);
+	--card: oklch(0.985 0.018 82);
+	--card-foreground: oklch(0.145 0.028 250);
+	--popover: oklch(0.985 0.018 82);
+	--popover-foreground: oklch(0.145 0.028 250);
+	--primary: oklch(0.57 0.23 28);
+	--primary-foreground: oklch(0.985 0.018 82);
+	--secondary: oklch(0.9 0.17 91);
+	--secondary-foreground: oklch(0.145 0.028 250);
+	--muted: oklch(0.93 0.018 82);
+	--muted-foreground: oklch(0.4 0.04 250);
+	--accent: oklch(0.62 0.21 250);
+	--accent-foreground: oklch(0.985 0.018 82);
 	--destructive: oklch(0.577 0.245 27.325);
-	--border: oklch(0.88 0.012 250);
-	--input: oklch(0.94 0.01 250);
-	--ring: oklch(0.66 0.16 248);
-	--chart-1: oklch(0.63 0.19 248);
-	--chart-2: oklch(0.72 0.15 150);
-	--chart-3: oklch(0.86 0.16 86);
-	--chart-4: oklch(0.64 0.18 28);
-	--chart-5: oklch(0.58 0.13 300);
-	--radius: 0.625rem;
-	--sidebar: oklch(0.985 0.004 250);
-	--sidebar-foreground: oklch(0.168 0.018 250);
-	--sidebar-primary: oklch(0.63 0.19 248);
-	--sidebar-primary-foreground: oklch(0.985 0.004 250);
-	--sidebar-accent: oklch(0.955 0.025 86);
-	--sidebar-accent-foreground: oklch(0.19 0.025 250);
-	--sidebar-border: oklch(0.88 0.012 250);
-	--sidebar-ring: oklch(0.66 0.16 248);
-	--background: oklch(0.985 0.004 250);
-	--foreground: oklch(0.168 0.018 250);
+	--border: oklch(0.145 0.028 250);
+	--input: oklch(0.96 0.017 82);
+	--ring: oklch(0.62 0.21 250);
+	--chart-1: oklch(0.57 0.23 28);
+	--chart-2: oklch(0.62 0.21 250);
+	--chart-3: oklch(0.9 0.17 91);
+	--chart-4: oklch(0.66 0.2 150);
+	--chart-5: oklch(0.55 0.16 310);
+	--radius: 0.45rem;
+	--sidebar: oklch(0.985 0.018 82);
+	--sidebar-foreground: oklch(0.145 0.028 250);
+	--sidebar-primary: oklch(0.57 0.23 28);
+	--sidebar-primary-foreground: oklch(0.985 0.018 82);
+	--sidebar-accent: oklch(0.9 0.17 91);
+	--sidebar-accent-foreground: oklch(0.145 0.028 250);
+	--sidebar-border: oklch(0.145 0.028 250);
+	--sidebar-ring: oklch(0.62 0.21 250);
+	--background: oklch(0.974 0.024 82);
+	--foreground: oklch(0.145 0.028 250);
+	--comic-paper: oklch(0.974 0.024 82);
+	--comic-ink: oklch(0.145 0.028 250);
+	--comic-red: oklch(0.57 0.23 28);
+	--comic-blue: oklch(0.62 0.21 250);
+	--comic-yellow: oklch(0.9 0.17 91);
+	--comic-green: oklch(0.66 0.2 150);
 }
 
 .dark {
@@ -123,6 +129,11 @@
 	}
   body {
     @apply bg-background text-foreground;
+		background-image:
+			radial-gradient(circle at 16px 16px, color-mix(in oklch, var(--comic-ink) 9%, transparent) 1.25px, transparent 1.25px),
+			linear-gradient(135deg, color-mix(in oklch, var(--comic-red) 7%, transparent), transparent 28%),
+			linear-gradient(315deg, color-mix(in oklch, var(--comic-blue) 8%, transparent), transparent 30%);
+		background-size: 24px 24px, 100% 100%, 100% 100%;
 	}
   button:not(:disabled), [role="button"]:not(:disabled) {
     cursor: pointer;
@@ -139,10 +150,177 @@
 
 .studio-grid {
 	background-image:
-		linear-gradient(to right, color-mix(in oklch, var(--foreground) 10%, transparent) 1px, transparent 1px),
-		linear-gradient(to bottom, color-mix(in oklch, var(--foreground) 10%, transparent) 1px, transparent 1px);
-	background-size: 42px 42px;
+		linear-gradient(to right, color-mix(in oklch, var(--comic-ink) 14%, transparent) 1.5px, transparent 1.5px),
+		linear-gradient(to bottom, color-mix(in oklch, var(--comic-ink) 14%, transparent) 1.5px, transparent 1.5px);
+	background-size: 34px 34px;
 	mask-image: radial-gradient(circle at 50% 30%, black, transparent 75%);
+}
+
+.comic-panel {
+	position: relative;
+	border: 2px solid var(--comic-ink);
+	border-radius: 18px 12px 20px 14px;
+	background:
+		linear-gradient(135deg, color-mix(in oklch, var(--comic-paper) 94%, white), var(--comic-paper)),
+		radial-gradient(circle at 16px 16px, color-mix(in oklch, var(--comic-ink) 11%, transparent) 1px, transparent 1px);
+	background-size: auto, 18px 18px;
+	box-shadow: 8px 8px 0 var(--comic-ink);
+}
+
+.comic-panel::before {
+	pointer-events: none;
+	position: absolute;
+	inset: 5px -5px -5px 5px;
+	z-index: -1;
+	border: 2px solid color-mix(in oklch, var(--comic-blue) 68%, var(--comic-ink));
+	border-radius: 14px 18px 12px 20px;
+	content: "";
+	transform: rotate(-0.7deg);
+}
+
+.comic-panel-soft {
+	position: relative;
+	border: 2px solid color-mix(in oklch, var(--comic-ink) 86%, transparent);
+	border-radius: 16px 11px 15px 12px;
+	background: color-mix(in oklch, var(--comic-paper) 93%, white);
+	box-shadow: 5px 5px 0 color-mix(in oklch, var(--comic-ink) 88%, transparent);
+}
+
+.comic-button {
+	position: relative;
+	border: 2px solid var(--comic-ink);
+	border-radius: 999px;
+	box-shadow: 4px 4px 0 var(--comic-ink);
+	transition:
+		transform 160ms ease,
+		box-shadow 160ms ease,
+		background-color 160ms ease,
+		color 160ms ease;
+}
+
+.comic-button:hover {
+	transform: translate(-2px, -2px) rotate(-1deg);
+	box-shadow: 7px 7px 0 var(--comic-ink);
+}
+
+.comic-button:active {
+	transform: translate(2px, 2px) rotate(0deg);
+	box-shadow: 1px 1px 0 var(--comic-ink);
+}
+
+.comic-title {
+	text-shadow:
+		3px 3px 0 var(--comic-yellow),
+		6px 6px 0 color-mix(in oklch, var(--comic-blue) 72%, transparent);
+}
+
+.comic-wordmark {
+	text-shadow:
+		1px 1px 0 var(--comic-paper),
+		3px 3px 0 var(--comic-red);
+}
+
+.comic-burst {
+	clip-path: polygon(
+		50% 0%,
+		58% 24%,
+		82% 10%,
+		74% 36%,
+		100% 42%,
+		76% 54%,
+		92% 78%,
+		64% 70%,
+		50% 100%,
+		38% 72%,
+		10% 86%,
+		24% 58%,
+		0% 48%,
+		26% 36%,
+		14% 10%,
+		42% 24%
+	);
+}
+
+.speed-lines {
+	background-image:
+		repeating-linear-gradient(
+			105deg,
+			transparent 0 13px,
+			color-mix(in oklch, var(--comic-ink) 16%, transparent) 14px 16px
+		);
+}
+
+.halftone-dots {
+	background-image: radial-gradient(
+		circle,
+		color-mix(in oklch, var(--comic-ink) 18%, transparent) 1.3px,
+		transparent 1.3px
+	);
+	background-size: 13px 13px;
+}
+
+.comic-code {
+	border: 2px solid var(--comic-ink);
+	border-radius: 16px 10px 18px 12px;
+	background:
+		linear-gradient(135deg, color-mix(in oklch, var(--comic-ink) 96%, black), var(--comic-ink)),
+		repeating-linear-gradient(90deg, transparent 0 20px, rgb(255 255 255 / 0.05) 20px 22px);
+	box-shadow: 5px 5px 0 color-mix(in oklch, var(--comic-blue) 84%, black);
+}
+
+.comic-dashboard {
+	background:
+		linear-gradient(180deg, color-mix(in oklch, var(--comic-paper) 96%, white), var(--comic-paper)),
+		radial-gradient(circle at 10px 10px, color-mix(in oklch, var(--comic-ink) 12%, transparent) 1px, transparent 1px);
+	background-size: auto, 18px 18px;
+}
+
+.comic-shake:hover {
+	animation: comic-shake 340ms ease both;
+}
+
+.comic-float {
+	animation: comic-float 3.2s ease-in-out infinite;
+}
+
+.comic-pulse {
+	animation: comic-pulse 1.3s ease-in-out infinite;
+}
+
+@keyframes comic-shake {
+	0%,
+	100% {
+		transform: rotate(0deg);
+	}
+	25% {
+		transform: rotate(-1.4deg) translateY(-1px);
+	}
+	50% {
+		transform: rotate(1.1deg) translateY(-2px);
+	}
+	75% {
+		transform: rotate(-0.8deg);
+	}
+}
+
+@keyframes comic-float {
+	0%,
+	100% {
+		transform: translateY(0) rotate(-1deg);
+	}
+	50% {
+		transform: translateY(-10px) rotate(1deg);
+	}
+}
+
+@keyframes comic-pulse {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.06) rotate(-1deg);
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {

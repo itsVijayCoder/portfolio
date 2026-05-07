@@ -77,32 +77,34 @@ export function SnippetShell({ snippets }: SnippetShellProps) {
 	};
 
 	return (
-		<div className="min-h-screen bg-secondary/50 text-foreground">
-			<header className="border-b border-border bg-background">
+		<div className="comic-dashboard min-h-screen text-foreground">
+			<header className="border-b-2 border-foreground bg-background">
 				<div className="flex min-h-14 flex-col gap-3 px-4 py-3 lg:flex-row lg:items-center lg:justify-between">
 					<div className="flex items-center gap-3">
 						<Link
 							href="/"
-							className="inline-flex size-9 items-center justify-center rounded-full border border-border bg-background transition-colors hover:bg-secondary"
+							className="comic-button inline-flex size-9 items-center justify-center bg-background"
 							aria-label="Back to portfolio"
 						>
 							<HugeiconsIcon icon={ArrowLeft01Icon} strokeWidth={2} />
 						</Link>
 						<div>
-							<h1 className="font-heading text-lg font-semibold">Snippet Control Room</h1>
+							<h1 className="comic-wordmark font-heading text-xl font-black uppercase">
+								Snippet Control Room
+							</h1>
 							<p className="font-mono text-xs text-muted-foreground">
 								Search, pin, preview, and copy production utilities.
 							</p>
 						</div>
 					</div>
 					<div className="flex flex-wrap gap-2 text-xs text-muted-foreground">
-						<span className="rounded-full border border-border bg-secondary px-3 py-1.5">
+						<span className="comic-button bg-secondary px-3 py-1.5 font-black uppercase">
 							{snippets.length} total
 						</span>
-						<span className="rounded-full border border-border bg-secondary px-3 py-1.5">
+						<span className="comic-button bg-secondary px-3 py-1.5 font-black uppercase">
 							{filteredSnippets.length} visible
 						</span>
-						<span className="rounded-full border border-border bg-secondary px-3 py-1.5">
+						<span className="comic-button bg-secondary px-3 py-1.5 font-black uppercase">
 							{favoriteSlugs.length} pinned
 						</span>
 					</div>
@@ -116,7 +118,7 @@ export function SnippetShell({ snippets }: SnippetShellProps) {
 					favoriteCount={favoriteSlugs.length}
 					onCategoryChange={updateCategory}
 				/>
-				<section className="flex min-h-[32rem] flex-col border-b border-border bg-background lg:border-b-0 lg:border-r">
+				<section className="flex min-h-[32rem] flex-col border-b-2 border-foreground bg-background lg:border-b-0 lg:border-r-2">
 					<SnippetToolbar
 						query={query}
 						languages={languages}
@@ -138,4 +140,3 @@ export function SnippetShell({ snippets }: SnippetShellProps) {
 		</div>
 	);
 }
-

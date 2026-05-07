@@ -2,17 +2,21 @@
 
 import { Toaster } from "sonner";
 
+import { ComicInteractions } from "@/components/animation/comic-interactions";
+
 export function AppProviders() {
 	return (
-		<Toaster
-			closeButton
-			position="bottom-right"
-			toastOptions={{
-				classNames: {
-					toast: "font-sans",
-				},
-			}}
-		/>
+		<>
+			<ComicInteractions />
+			<Toaster
+				closeButton
+				position="bottom-right"
+				toastOptions={{
+					classNames: {
+						toast: "font-sans comic-panel-soft",
+					},
+				}}
+			/>
+		</>
 	);
 }
-

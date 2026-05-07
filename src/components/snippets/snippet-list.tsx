@@ -43,7 +43,7 @@ export function SnippetList({
 					<div
 						key={snippet.slug}
 						className={cn(
-							"border-b border-border bg-background transition-colors hover:bg-secondary/60",
+							"border-b-2 border-foreground bg-background transition-all hover:bg-secondary/70",
 							selected && "bg-secondary",
 						)}
 					>
@@ -53,8 +53,8 @@ export function SnippetList({
 							onClick={() => onSelect(snippet.slug)}
 						>
 							<div className="flex items-start justify-between gap-3">
-								<div>
-									<div className="font-heading text-base font-semibold">{snippet.title}</div>
+									<div>
+									<div className="font-heading text-lg font-black uppercase">{snippet.title}</div>
 									<p className="mt-1 line-clamp-2 text-sm leading-6 text-muted-foreground">
 										{snippet.description}
 									</p>
@@ -62,9 +62,11 @@ export function SnippetList({
 								<span className="font-mono text-xs text-muted-foreground">{snippet.language}</span>
 							</div>
 							<div className="flex flex-wrap gap-2">
-								<Badge variant="secondary">{snippet.category}</Badge>
-								{snippet.tags.slice(0, 2).map((tag) => (
-									<Badge key={tag} variant="outline">
+									<Badge className="border-2 border-foreground" variant="secondary">
+										{snippet.category}
+									</Badge>
+									{snippet.tags.slice(0, 2).map((tag) => (
+									<Badge key={tag} className="border-2 border-foreground" variant="outline">
 										{tag}
 									</Badge>
 								))}
@@ -73,8 +75,8 @@ export function SnippetList({
 						<button
 							type="button"
 							className={cn(
-								"mb-3 ml-4 inline-flex h-8 items-center gap-2 rounded-full border border-border px-3 text-xs font-medium text-muted-foreground transition-colors hover:bg-background hover:text-foreground",
-								favorite && "border-primary bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground",
+								"comic-button mb-3 ml-4 inline-flex h-8 items-center gap-2 bg-background px-3 text-xs font-black uppercase text-muted-foreground",
+								favorite && "bg-primary text-primary-foreground",
 							)}
 							onClick={() => onToggleFavorite(snippet.slug)}
 							aria-pressed={favorite}
@@ -88,4 +90,3 @@ export function SnippetList({
 		</div>
 	);
 }
-

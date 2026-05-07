@@ -29,8 +29,8 @@ export function SnippetToolbar({
 	onLanguageChange,
 }: SnippetToolbarProps) {
 	return (
-		<div className="flex flex-col gap-3 border-b border-border bg-background p-3 xl:flex-row xl:items-center xl:justify-between">
-			<InputGroup className="max-w-2xl">
+		<div className="flex flex-col gap-3 border-b-2 border-foreground bg-background p-3 xl:flex-row xl:items-center xl:justify-between">
+			<InputGroup className="max-w-2xl border-2 border-foreground shadow-[4px_4px_0_var(--comic-ink)]">
 				<InputGroupAddon>
 					<InputGroupText>
 						<HugeiconsIcon icon={Search02Icon} strokeWidth={2} />
@@ -45,7 +45,7 @@ export function SnippetToolbar({
 			</InputGroup>
 
 			<div className="flex items-center gap-2 overflow-x-auto">
-				<div className="flex shrink-0 items-center gap-1 rounded-full border border-border bg-secondary px-3 py-2 text-xs font-medium text-muted-foreground">
+				<div className="comic-button flex shrink-0 items-center gap-1 bg-secondary px-3 py-2 text-xs font-black uppercase text-muted-foreground">
 					<HugeiconsIcon icon={FilterHorizontalIcon} strokeWidth={2} />
 					{isPending ? "Filtering" : "Language"}
 				</div>
@@ -54,8 +54,8 @@ export function SnippetToolbar({
 						key={language}
 						type="button"
 						className={cn(
-							"h-9 shrink-0 rounded-full border border-border px-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground",
-							activeLanguage === language && "border-foreground bg-foreground text-background hover:bg-foreground hover:text-background",
+							"comic-button h-9 shrink-0 bg-background px-3 text-sm font-black uppercase text-muted-foreground",
+							activeLanguage === language && "bg-foreground text-background",
 						)}
 						onClick={() => onLanguageChange(language)}
 					>
@@ -66,4 +66,3 @@ export function SnippetToolbar({
 		</div>
 	);
 }
-

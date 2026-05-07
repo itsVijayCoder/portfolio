@@ -15,7 +15,9 @@ export default function ProjectsPage() {
 		<SiteShell>
 			<section className="mx-auto max-w-7xl px-4 pt-20 sm:px-6 lg:px-8">
 				<div className="max-w-3xl">
-					<h1 className="font-heading text-5xl font-semibold leading-tight">Project episodes</h1>
+					<h1 className="comic-title font-heading text-6xl font-black uppercase leading-none">
+						Project episodes
+					</h1>
 					<p className="mt-4 text-base leading-7 text-muted-foreground">
 						Each project is structured like a case file: role, stack, decisions, and outcomes.
 					</p>
@@ -26,4 +28,3 @@ export default function ProjectsPage() {
 		</SiteShell>
 	);
 }
-

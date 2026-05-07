@@ -19,13 +19,13 @@ export function SnippetSidebar({
 	onCategoryChange,
 }: SnippetSidebarProps) {
 	return (
-		<aside className="border-b border-border bg-background p-3 lg:border-b-0 lg:border-r">
-			<div className="mb-4 flex items-center gap-3 rounded-2xl bg-foreground p-3 text-background">
-				<div className="flex size-9 items-center justify-center rounded-xl bg-background/10">
+		<aside className="border-b-2 border-foreground bg-background p-3 lg:border-b-0 lg:border-r-2">
+			<div className="comic-panel-soft mb-4 flex items-center gap-3 bg-foreground p-3 text-background">
+				<div className="comic-burst flex size-12 items-center justify-center bg-secondary text-foreground">
 					<HugeiconsIcon icon={DashboardSquare03Icon} strokeWidth={2} />
 				</div>
 				<div>
-					<div className="text-sm font-semibold">Control Room</div>
+					<div className="text-sm font-black uppercase">Control Room</div>
 					<div className="font-mono text-xs text-background/60">copy utilities</div>
 				</div>
 			</div>
@@ -39,7 +39,7 @@ export function SnippetSidebar({
 							key={category}
 							type="button"
 							className={cn(
-								"flex h-10 shrink-0 items-center justify-between gap-3 rounded-xl px-3 text-left text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground lg:w-full",
+								"comic-button flex h-10 shrink-0 items-center justify-between gap-3 bg-background px-3 text-left text-sm font-black uppercase text-muted-foreground lg:w-full",
 								active && "bg-secondary text-foreground",
 							)}
 							onClick={() => onCategoryChange(category)}
@@ -58,4 +58,3 @@ export function SnippetSidebar({
 		</aside>
 	);
 }
-

@@ -17,7 +17,9 @@ export function SkillsStrip() {
 		<MotionSection className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
 			<div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
 				<div>
-					<h2 className="font-heading text-3xl font-semibold sm:text-4xl">Skill powers</h2>
+					<h2 className="comic-title font-heading text-4xl font-black uppercase sm:text-5xl">
+						Skill powers
+					</h2>
 					<p className="mt-3 max-w-2xl text-sm leading-6 text-muted-foreground">
 						A focused stack for shipping clean, typed, animated, cloud-ready interfaces.
 					</p>
@@ -25,19 +27,21 @@ export function SkillsStrip() {
 			</div>
 			<div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
 				{profile.skillGroups.map((group, index) => (
-					<Card key={group.title} className="rounded-2xl">
+					<Card key={group.title} className="comic-panel h-full rounded-none bg-card">
 						<CardHeader>
-							<div className="flex size-10 items-center justify-center rounded-2xl bg-secondary">
+							<div className="comic-burst flex size-14 items-center justify-center bg-secondary">
 								<HugeiconsIcon icon={icons[index]} strokeWidth={2} />
 							</div>
-							<CardTitle>{group.title}</CardTitle>
+							<CardTitle className="font-heading text-xl font-black uppercase">
+								{group.title}
+							</CardTitle>
 						</CardHeader>
 						<CardContent>
 							<div className="flex flex-wrap gap-2">
 								{group.skills.map((skill) => (
 									<span
 										key={skill}
-										className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium text-muted-foreground"
+										className="comic-button bg-background px-3 py-1 text-xs font-black uppercase text-muted-foreground"
 									>
 										{skill}
 									</span>
@@ -50,4 +54,3 @@ export function SkillsStrip() {
 		</MotionSection>
 	);
 }
-
