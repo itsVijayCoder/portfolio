@@ -1,0 +1,61 @@
+"use client";
+
+import { HugeiconsIcon } from "@hugeicons/react";
+import { DashboardSquare03Icon, StarIcon } from "@hugeicons/core-free-icons";
+
+import { cn } from "@/lib/utils";
+
+type SnippetSidebarProps = {
+	categories: string[];
+	activeCategory: string;
+	favoriteCount: number;
+	onCategoryChange: (category: string) => void;
+};
+
+export function SnippetSidebar({
+	categories,
+	activeCategory,
+	favoriteCount,
+	onCategoryChange,
+}: SnippetSidebarProps) {
+	return (
+		<aside className="border-b border-border bg-background p-3 lg:border-b-0 lg:border-r">
+			<div className="mb-4 flex items-center gap-3 rounded-2xl bg-foreground p-3 text-background">
+				<div className="flex size-9 items-center justify-center rounded-xl bg-background/10">
+					<HugeiconsIcon icon={DashboardSquare03Icon} strokeWidth={2} />
+				</div>
+				<div>
+					<div className="text-sm font-semibold">Control Room</div>
+					<div className="font-mono text-xs text-background/60">copy utilities</div>
+				</div>
+			</div>
+			<nav className="flex gap-2 overflow-x-auto lg:flex-col lg:overflow-visible" aria-label="Snippet categories">
+				{categories.map((category) => {
+					const active = category === activeCategory;
+					const label = category === "all" ? "All snippets" : category;
+
+					return (
+						<button
+							key={category}
+							type="button"
+							className={cn(
+								"flex h-10 shrink-0 items-center justify-between gap-3 rounded-xl px-3 text-left text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground lg:w-full",
+								active && "bg-secondary text-foreground",
+							)}
+							onClick={() => onCategoryChange(category)}
+						>
+							<span>{label}</span>
+							{category === "favorites" ? (
+								<span className="flex items-center gap-1 font-mono text-xs">
+									<HugeiconsIcon icon={StarIcon} strokeWidth={2} />
+									{favoriteCount}
+								</span>
+							) : null}
+						</button>
+					);
+				})}
+			</nav>
+		</aside>
+	);
+}
+
