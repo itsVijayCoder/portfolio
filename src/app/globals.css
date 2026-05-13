@@ -49,44 +49,44 @@
 }
 
 :root {
-	--card: oklch(0.985 0.018 82);
-	--card-foreground: oklch(0.145 0.028 250);
-	--popover: oklch(0.985 0.018 82);
-	--popover-foreground: oklch(0.145 0.028 250);
-	--primary: oklch(0.57 0.23 28);
-	--primary-foreground: oklch(0.985 0.018 82);
-	--secondary: oklch(0.9 0.17 91);
-	--secondary-foreground: oklch(0.145 0.028 250);
-	--muted: oklch(0.93 0.018 82);
-	--muted-foreground: oklch(0.4 0.04 250);
-	--accent: oklch(0.62 0.21 250);
-	--accent-foreground: oklch(0.985 0.018 82);
+	--card: oklch(0.17 0.018 238);
+	--card-foreground: oklch(0.985 0.006 84);
+	--popover: oklch(0.14 0.018 238);
+	--popover-foreground: oklch(0.985 0.006 84);
+	--primary: oklch(0.67 0.23 29);
+	--primary-foreground: oklch(0.985 0.006 84);
+	--secondary: oklch(0.86 0.21 126);
+	--secondary-foreground: oklch(0.09 0.012 238);
+	--muted: oklch(0.22 0.02 238);
+	--muted-foreground: oklch(0.72 0.028 238);
+	--accent: oklch(0.63 0.24 258);
+	--accent-foreground: oklch(0.985 0.006 84);
 	--destructive: oklch(0.577 0.245 27.325);
-	--border: oklch(0.145 0.028 250);
-	--input: oklch(0.96 0.017 82);
-	--ring: oklch(0.62 0.21 250);
-	--chart-1: oklch(0.57 0.23 28);
-	--chart-2: oklch(0.62 0.21 250);
-	--chart-3: oklch(0.9 0.17 91);
-	--chart-4: oklch(0.66 0.2 150);
-	--chart-5: oklch(0.55 0.16 310);
-	--radius: 0.45rem;
-	--sidebar: oklch(0.985 0.018 82);
-	--sidebar-foreground: oklch(0.145 0.028 250);
-	--sidebar-primary: oklch(0.57 0.23 28);
-	--sidebar-primary-foreground: oklch(0.985 0.018 82);
-	--sidebar-accent: oklch(0.9 0.17 91);
-	--sidebar-accent-foreground: oklch(0.145 0.028 250);
-	--sidebar-border: oklch(0.145 0.028 250);
-	--sidebar-ring: oklch(0.62 0.21 250);
-	--background: oklch(0.974 0.024 82);
-	--foreground: oklch(0.145 0.028 250);
-	--comic-paper: oklch(0.974 0.024 82);
-	--comic-ink: oklch(0.145 0.028 250);
-	--comic-red: oklch(0.57 0.23 28);
-	--comic-blue: oklch(0.62 0.21 250);
-	--comic-yellow: oklch(0.9 0.17 91);
-	--comic-green: oklch(0.66 0.2 150);
+	--border: oklch(0.985 0.006 84 / 16%);
+	--input: oklch(0.19 0.018 238);
+	--ring: oklch(0.86 0.21 126);
+	--chart-1: oklch(0.67 0.23 29);
+	--chart-2: oklch(0.63 0.24 258);
+	--chart-3: oklch(0.86 0.21 126);
+	--chart-4: oklch(0.82 0.18 91);
+	--chart-5: oklch(0.66 0.2 150);
+	--radius: 0.25rem;
+	--sidebar: oklch(0.13 0.018 238);
+	--sidebar-foreground: oklch(0.985 0.006 84);
+	--sidebar-primary: oklch(0.86 0.21 126);
+	--sidebar-primary-foreground: oklch(0.09 0.012 238);
+	--sidebar-accent: oklch(0.2 0.02 238);
+	--sidebar-accent-foreground: oklch(0.985 0.006 84);
+	--sidebar-border: oklch(0.985 0.006 84 / 14%);
+	--sidebar-ring: oklch(0.86 0.21 126);
+	--background: oklch(0.095 0.014 238);
+	--foreground: oklch(0.985 0.006 84);
+	--comic-paper: oklch(0.14 0.018 238);
+	--comic-ink: oklch(0.985 0.006 84);
+	--comic-red: oklch(0.67 0.23 29);
+	--comic-blue: oklch(0.63 0.24 258);
+	--comic-yellow: oklch(0.86 0.21 126);
+	--comic-green: oklch(0.74 0.19 150);
 }
 
 .dark {
@@ -130,10 +130,11 @@
   body {
     @apply bg-background text-foreground;
 		background-image:
-			radial-gradient(circle at 16px 16px, color-mix(in oklch, var(--comic-ink) 9%, transparent) 1.25px, transparent 1.25px),
-			linear-gradient(135deg, color-mix(in oklch, var(--comic-red) 7%, transparent), transparent 28%),
-			linear-gradient(315deg, color-mix(in oklch, var(--comic-blue) 8%, transparent), transparent 30%);
-		background-size: 24px 24px, 100% 100%, 100% 100%;
+			linear-gradient(to right, color-mix(in oklch, var(--foreground) 5%, transparent) 1px, transparent 1px),
+			linear-gradient(to bottom, color-mix(in oklch, var(--foreground) 5%, transparent) 1px, transparent 1px),
+			radial-gradient(circle at 78% 10%, color-mix(in oklch, var(--accent) 26%, transparent), transparent 30%),
+			radial-gradient(circle at 8% 58%, color-mix(in oklch, var(--primary) 18%, transparent), transparent 26%);
+		background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%;
 	}
   button:not(:disabled), [role="button"]:not(:disabled) {
     cursor: pointer;
@@ -150,21 +151,21 @@
 
 .studio-grid {
 	background-image:
-		linear-gradient(to right, color-mix(in oklch, var(--comic-ink) 14%, transparent) 1.5px, transparent 1.5px),
-		linear-gradient(to bottom, color-mix(in oklch, var(--comic-ink) 14%, transparent) 1.5px, transparent 1.5px);
+		linear-gradient(to right, color-mix(in oklch, var(--comic-ink) 10%, transparent) 1px, transparent 1px),
+		linear-gradient(to bottom, color-mix(in oklch, var(--comic-ink) 10%, transparent) 1px, transparent 1px);
 	background-size: 34px 34px;
 	mask-image: radial-gradient(circle at 50% 30%, black, transparent 75%);
 }
 
 .comic-panel {
 	position: relative;
-	border: 2px solid var(--comic-ink);
-	border-radius: 18px 12px 20px 14px;
+	border: 1px solid color-mix(in oklch, var(--comic-ink) 18%, transparent);
+	border-radius: 0;
 	background:
-		linear-gradient(135deg, color-mix(in oklch, var(--comic-paper) 94%, white), var(--comic-paper)),
-		radial-gradient(circle at 16px 16px, color-mix(in oklch, var(--comic-ink) 11%, transparent) 1px, transparent 1px);
+		linear-gradient(135deg, color-mix(in oklch, var(--comic-paper) 94%, white 2%), var(--comic-paper)),
+		radial-gradient(circle at 16px 16px, color-mix(in oklch, var(--comic-ink) 10%, transparent) 1px, transparent 1px);
 	background-size: auto, 18px 18px;
-	box-shadow: 8px 8px 0 var(--comic-ink);
+	box-shadow: 10px 10px 0 color-mix(in oklch, var(--comic-blue) 55%, transparent);
 }
 
 .comic-panel::before {
@@ -172,25 +173,25 @@
 	position: absolute;
 	inset: 5px -5px -5px 5px;
 	z-index: -1;
-	border: 2px solid color-mix(in oklch, var(--comic-blue) 68%, var(--comic-ink));
-	border-radius: 14px 18px 12px 20px;
+	border: 1px solid color-mix(in oklch, var(--comic-red) 76%, transparent);
+	border-radius: 0;
 	content: "";
 	transform: rotate(-0.7deg);
 }
 
 .comic-panel-soft {
 	position: relative;
-	border: 2px solid color-mix(in oklch, var(--comic-ink) 86%, transparent);
-	border-radius: 16px 11px 15px 12px;
-	background: color-mix(in oklch, var(--comic-paper) 93%, white);
-	box-shadow: 5px 5px 0 color-mix(in oklch, var(--comic-ink) 88%, transparent);
+	border: 1px solid color-mix(in oklch, var(--comic-ink) 14%, transparent);
+	border-radius: 0;
+	background: color-mix(in oklch, var(--comic-paper) 88%, transparent);
+	box-shadow: 5px 5px 0 color-mix(in oklch, var(--comic-blue) 36%, transparent);
 }
 
 .comic-button {
 	position: relative;
-	border: 2px solid var(--comic-ink);
-	border-radius: 999px;
-	box-shadow: 4px 4px 0 var(--comic-ink);
+	border: 1px solid color-mix(in oklch, var(--comic-ink) 18%, transparent);
+	border-radius: 0;
+	box-shadow: 4px 4px 0 color-mix(in oklch, var(--comic-blue) 45%, transparent);
 	transition:
 		transform 160ms ease,
 		box-shadow 160ms ease,
@@ -260,19 +261,236 @@
 }
 
 .comic-code {
-	border: 2px solid var(--comic-ink);
-	border-radius: 16px 10px 18px 12px;
+	border: 1px solid color-mix(in oklch, var(--comic-ink) 14%, transparent);
+	border-radius: 0;
 	background:
-		linear-gradient(135deg, color-mix(in oklch, var(--comic-ink) 96%, black), var(--comic-ink)),
+		linear-gradient(135deg, oklch(0.11 0.02 238), oklch(0.075 0.014 238)),
 		repeating-linear-gradient(90deg, transparent 0 20px, rgb(255 255 255 / 0.05) 20px 22px);
-	box-shadow: 5px 5px 0 color-mix(in oklch, var(--comic-blue) 84%, black);
+	box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.08), 0 24px 70px rgb(0 0 0 / 0.35);
 }
 
 .comic-dashboard {
 	background:
-		linear-gradient(180deg, color-mix(in oklch, var(--comic-paper) 96%, white), var(--comic-paper)),
-		radial-gradient(circle at 10px 10px, color-mix(in oklch, var(--comic-ink) 12%, transparent) 1px, transparent 1px);
+		linear-gradient(180deg, var(--background), color-mix(in oklch, var(--background) 86%, black)),
+		radial-gradient(circle at 10px 10px, color-mix(in oklch, var(--comic-ink) 8%, transparent) 1px, transparent 1px);
 	background-size: auto, 18px 18px;
+}
+
+.hero-canvas,
+.snippets-studio {
+	background:
+		linear-gradient(180deg, color-mix(in oklch, var(--background) 94%, black), var(--background)),
+		linear-gradient(to right, color-mix(in oklch, var(--foreground) 4%, transparent) 1px, transparent 1px),
+		linear-gradient(to bottom, color-mix(in oklch, var(--foreground) 4%, transparent) 1px, transparent 1px);
+	background-size: auto, 48px 48px, 48px 48px;
+}
+
+.portfolio-mark {
+	position: relative;
+	border: 1px solid color-mix(in oklch, var(--primary) 62%, transparent);
+	background: color-mix(in oklch, var(--primary) 9%, transparent);
+	box-shadow: 0 0 24px color-mix(in oklch, var(--primary) 18%, transparent);
+}
+
+.portfolio-mark::before,
+.portfolio-mark::after {
+	position: absolute;
+	left: -7px;
+	height: 20px;
+	width: 2px;
+	background: var(--primary);
+	content: "";
+	transform: rotate(24deg);
+}
+
+.portfolio-mark::after {
+	left: -2px;
+	opacity: 0.72;
+}
+
+.neo-button {
+	position: relative;
+	border: 1px solid color-mix(in oklch, var(--foreground) 18%, transparent);
+	background: color-mix(in oklch, var(--background) 72%, transparent);
+	color: var(--foreground);
+	transition:
+		transform 180ms ease,
+		border-color 180ms ease,
+		background-color 180ms ease,
+		color 180ms ease,
+		box-shadow 180ms ease;
+}
+
+.neo-button:hover {
+	transform: translateY(-2px);
+	border-color: color-mix(in oklch, var(--secondary) 72%, transparent);
+	box-shadow: 0 0 28px color-mix(in oklch, var(--secondary) 18%, transparent);
+}
+
+.neo-button-primary {
+	border-color: color-mix(in oklch, var(--primary) 75%, transparent);
+	background: var(--primary);
+	color: var(--primary-foreground);
+	box-shadow: 0 0 30px color-mix(in oklch, var(--primary) 20%, transparent);
+}
+
+.snippet-surface,
+.snippet-workspace,
+.snippet-tip {
+	border: 1px solid color-mix(in oklch, var(--foreground) 12%, transparent);
+	background:
+		linear-gradient(135deg, color-mix(in oklch, var(--card) 78%, transparent), color-mix(in oklch, var(--background) 94%, transparent)),
+		radial-gradient(circle at 12px 12px, color-mix(in oklch, var(--foreground) 8%, transparent) 1px, transparent 1px);
+	background-size: auto, 18px 18px;
+	box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.08), 0 26px 70px rgb(0 0 0 / 0.25);
+}
+
+.snippet-workspace {
+	overflow: hidden;
+}
+
+.snippet-nav-link {
+	border-bottom: 2px solid transparent;
+	padding: 0.45rem 0.65rem;
+	font-weight: 900;
+	text-transform: uppercase;
+	transition:
+		border-color 180ms ease,
+		color 180ms ease;
+}
+
+.snippet-nav-link:hover {
+	border-color: var(--secondary);
+	color: var(--foreground);
+}
+
+.snippet-terminal {
+	border: 1px solid color-mix(in oklch, var(--secondary) 58%, transparent);
+	color: var(--secondary);
+	padding: 0.45rem 0.65rem;
+	font-family: var(--font-mono);
+	font-weight: 900;
+}
+
+.snippet-orbit {
+	box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06);
+}
+
+.snippet-orbit-card {
+	position: absolute;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	border: 1px solid color-mix(in oklch, var(--secondary) 48%, transparent);
+	background: color-mix(in oklch, var(--background) 80%, transparent);
+	color: var(--secondary);
+	padding: 0.85rem 1rem;
+	font-size: 0.875rem;
+	font-weight: 900;
+	transform: rotate(-5deg);
+	transition:
+		transform 180ms ease,
+		border-color 180ms ease,
+		background-color 180ms ease;
+}
+
+.snippet-orbit-card:nth-of-type(2n) {
+	border-color: color-mix(in oklch, var(--primary) 58%, transparent);
+	color: var(--primary);
+	transform: rotate(5deg);
+}
+
+.snippet-orbit-card:nth-of-type(3n) {
+	border-color: color-mix(in oklch, var(--accent) 58%, transparent);
+	color: var(--accent);
+	transform: rotate(3deg);
+}
+
+.snippet-orbit-card:hover {
+	transform: translateY(-4px) rotate(0deg);
+	background: color-mix(in oklch, var(--foreground) 6%, transparent);
+}
+
+.snippet-orbit-card-mobile {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.6rem;
+	border: 1px solid color-mix(in oklch, var(--secondary) 52%, transparent);
+	background: color-mix(in oklch, var(--background) 82%, transparent);
+	color: var(--secondary);
+	padding: 0.9rem 1rem;
+	font-size: 0.9rem;
+	font-weight: 900;
+	text-align: left;
+}
+
+.snippet-orbit-card-mobile:nth-child(2n) {
+	border-color: color-mix(in oklch, var(--primary) 58%, transparent);
+	color: var(--primary);
+}
+
+.snippet-orbit-card-mobile:nth-child(3n) {
+	border-color: color-mix(in oklch, var(--accent) 58%, transparent);
+	color: var(--accent);
+}
+
+.snippet-input {
+	border: 1px solid color-mix(in oklch, var(--foreground) 16%, transparent) !important;
+	background: color-mix(in oklch, var(--background) 70%, transparent) !important;
+	box-shadow: none !important;
+}
+
+.snippet-filter,
+.snippet-rail-button,
+.snippet-pin {
+	border: 1px solid color-mix(in oklch, var(--foreground) 12%, transparent);
+	background: color-mix(in oklch, var(--background) 62%, transparent);
+	transition:
+		transform 180ms ease,
+		border-color 180ms ease,
+		background-color 180ms ease,
+		color 180ms ease;
+}
+
+.snippet-filter:hover,
+.snippet-rail-button:hover,
+.snippet-pin:hover {
+	transform: translateY(-1px);
+	border-color: color-mix(in oklch, var(--secondary) 54%, transparent);
+	color: var(--foreground);
+}
+
+.snippet-filter.is-active,
+.snippet-rail-button.is-active,
+.snippet-pin.is-active {
+	border-color: color-mix(in oklch, var(--secondary) 70%, transparent);
+	background: color-mix(in oklch, var(--secondary) 14%, transparent);
+	color: var(--secondary);
+}
+
+.snippet-list-card {
+	position: relative;
+	border: 1px solid color-mix(in oklch, var(--foreground) 10%, transparent);
+	background: color-mix(in oklch, var(--card) 52%, transparent);
+}
+
+.snippet-list-card::before {
+	position: absolute;
+	inset-block: 0;
+	left: 0;
+	width: 2px;
+	background: transparent;
+	content: "";
+}
+
+.snippet-list-card.is-selected {
+	border-color: color-mix(in oklch, var(--secondary) 68%, transparent);
+	background: color-mix(in oklch, var(--secondary) 9%, transparent);
+	box-shadow: 0 0 34px color-mix(in oklch, var(--secondary) 12%, transparent);
+}
+
+.snippet-list-card.is-selected::before {
+	background: var(--secondary);
 }
 
 .comic-shake:hover {
@@ -331,5 +549,25 @@
 		animation-duration: 0.001ms !important;
 		animation-iteration-count: 1 !important;
 		transition-duration: 0.001ms !important;
+	}
+}
+
+@media (max-width: 639px) {
+	.snippet-orbit {
+		display: grid;
+		min-height: auto;
+		gap: 0.75rem;
+	}
+
+	.snippet-orbit > div {
+		display: none;
+	}
+
+	.snippet-orbit-card {
+		position: relative;
+		inset: auto !important;
+		width: 100%;
+		justify-content: flex-start;
+		transform: none !important;
 	}
 }

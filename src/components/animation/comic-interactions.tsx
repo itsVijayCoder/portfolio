@@ -38,7 +38,7 @@ export function ComicInteractions() {
 			/>
 			{!shouldReduceMotion ? (
 				<motion.div
-					className="pointer-events-none fixed z-[60] size-56 rounded-full opacity-25 mix-blend-multiply blur-2xl"
+					className="pointer-events-none fixed z-[60] size-56 rounded-full opacity-25 mix-blend-screen blur-2xl"
 					style={{
 						x: mouseX,
 						y: mouseY,

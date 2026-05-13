@@ -5,10 +5,9 @@ import { snippets } from "@/data/snippets";
 
 export const metadata: Metadata = {
 	title: "Snippets | Vijay",
-	description: "A Cloudflare Dashboard-inspired collection of useful copy-ready code snippets.",
+	description: "Vijay's creative code notes, snippets, and reusable frontend utilities.",
 };
 
 export default function SnippetsPage() {
 	return <SnippetShell snippets={snippets} />;
 }
-

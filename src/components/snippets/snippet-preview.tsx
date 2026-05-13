@@ -29,16 +29,16 @@ export function SnippetPreview({ snippet, view, onViewChange }: SnippetPreviewPr
 	}
 
 	return (
-		<section className="flex min-h-0 flex-col bg-background" aria-label="Snippet preview">
-			<div className="flex flex-col gap-4 border-b-2 border-foreground p-4 xl:flex-row xl:items-start xl:justify-between">
+		<section className="flex min-h-0 flex-col bg-background/25" aria-label="Snippet preview">
+			<div className="flex flex-col gap-4 border-b border-foreground/10 p-4 xl:flex-row xl:items-start xl:justify-between">
 				<div className="min-w-0">
 					<div className="mb-3 flex flex-wrap gap-2">
-						<Badge className="border-2 border-foreground">{snippet.language}</Badge>
-						<Badge className="border-2 border-foreground" variant="secondary">
+						<Badge className="border border-accent/40 bg-accent/10 text-accent">{snippet.language}</Badge>
+						<Badge className="border border-secondary/50 bg-secondary/10 text-secondary" variant="secondary">
 							{snippet.category}
 						</Badge>
 					</div>
-					<h2 className="comic-wordmark font-heading text-3xl font-black uppercase">
+					<h2 className="font-heading text-3xl font-black tracking-normal">
 						{snippet.title}
 					</h2>
 					<p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
@@ -49,7 +49,7 @@ export function SnippetPreview({ snippet, view, onViewChange }: SnippetPreviewPr
 					<CopySnippetButton code={snippet.code} />
 					<Link
 						href={`/snippets/${snippet.slug}`}
-						className="comic-button inline-flex h-8 items-center justify-center gap-2 bg-background px-3 text-sm font-black uppercase"
+						className="neo-button inline-flex h-8 items-center justify-center gap-2 px-3 text-sm font-black uppercase"
 					>
 						Open
 						<HugeiconsIcon icon={ArrowUpRight02Icon} strokeWidth={2} />
@@ -57,14 +57,14 @@ export function SnippetPreview({ snippet, view, onViewChange }: SnippetPreviewPr
 				</div>
 			</div>
 
-			<div className="flex items-center gap-2 border-b-2 border-foreground p-3">
+			<div className="flex items-center gap-2 border-b border-foreground/10 p-3">
 				{(["code", "notes"] as const).map((tab) => (
 					<button
 						key={tab}
 						type="button"
 						className={cn(
-							"comic-button h-9 bg-background px-4 text-sm font-black uppercase text-muted-foreground",
-							view === tab && "bg-foreground text-background",
+							"snippet-filter h-9 px-4 text-sm font-black uppercase text-muted-foreground",
+							view === tab && "is-active",
 						)}
 						onClick={() => onViewChange(tab)}
 					>
@@ -75,14 +75,14 @@ export function SnippetPreview({ snippet, view, onViewChange }: SnippetPreviewPr
 
 			<div className="min-h-0 flex-1 overflow-y-auto p-4">
 				{view === "code" ? (
-					<pre className="comic-code min-h-96 overflow-x-auto p-5 font-mono text-xs leading-6 text-background">
+					<pre className="comic-code min-h-96 overflow-x-auto p-5 font-mono text-xs leading-6 text-foreground">
 						<code>{snippet.code}</code>
 					</pre>
 				) : (
 					<div className="flex flex-col gap-3">
 						{snippet.notes.map((note) => (
-							<div key={note} className="comic-panel-soft flex gap-3 bg-secondary/70 p-4">
-								<div className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-xl border-2 border-foreground bg-background">
+							<div key={note} className="snippet-surface flex gap-3 p-4">
+								<div className="mt-0.5 flex size-8 shrink-0 items-center justify-center border border-secondary/50 bg-secondary/10 text-secondary">
 									<HugeiconsIcon icon={CodeIcon} strokeWidth={2} />
 								</div>
 								<p className="text-sm leading-6 text-muted-foreground">{note}</p>

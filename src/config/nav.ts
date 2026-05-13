@@ -8,7 +8,7 @@ import {
 
 export const navItems = [
 	{
-		label: "Studio",
+		label: "Home",
 		href: "/",
 		icon: Home01Icon,
 	},
@@ -33,4 +33,3 @@ export const navItems = [
 		icon: ContactIcon,
 	},
 ] as const;
-

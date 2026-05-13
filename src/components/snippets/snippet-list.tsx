@@ -34,7 +34,7 @@ export function SnippetList({
 	}
 
 	return (
-		<div className="flex min-h-0 flex-col overflow-y-auto">
+		<div className="flex min-h-0 flex-col gap-3 overflow-y-auto p-3">
 			{snippets.map((snippet) => {
 				const selected = snippet.slug === selectedSlug;
 				const favorite = favoriteSlugs.includes(snippet.slug);
@@ -43,9 +43,10 @@ export function SnippetList({
 					<div
 						key={snippet.slug}
 						className={cn(
-							"border-b-2 border-foreground bg-background transition-all hover:bg-secondary/70",
-							selected && "bg-secondary",
+							"snippet-list-card group transition-all hover:border-secondary/50 hover:bg-secondary/[0.06]",
+							selected && "is-selected",
 						)}
+						data-gsap-reveal
 					>
 						<button
 							type="button"
@@ -53,20 +54,24 @@ export function SnippetList({
 							onClick={() => onSelect(snippet.slug)}
 						>
 							<div className="flex items-start justify-between gap-3">
-									<div>
-									<div className="font-heading text-lg font-black uppercase">{snippet.title}</div>
+								<div>
+									<div className="font-heading text-lg font-black tracking-normal text-foreground">
+										{snippet.title}
+									</div>
 									<p className="mt-1 line-clamp-2 text-sm leading-6 text-muted-foreground">
 										{snippet.description}
 									</p>
 								</div>
-								<span className="font-mono text-xs text-muted-foreground">{snippet.language}</span>
+								<span className="border border-accent/40 bg-accent/10 px-2 py-1 font-mono text-xs text-accent">
+									{snippet.language}
+								</span>
 							</div>
 							<div className="flex flex-wrap gap-2">
-									<Badge className="border-2 border-foreground" variant="secondary">
-										{snippet.category}
-									</Badge>
-									{snippet.tags.slice(0, 2).map((tag) => (
-									<Badge key={tag} className="border-2 border-foreground" variant="outline">
+								<Badge className="border border-secondary/50 bg-secondary/10 text-secondary" variant="secondary">
+									{snippet.category}
+								</Badge>
+								{snippet.tags.slice(0, 2).map((tag) => (
+									<Badge key={tag} className="border border-foreground/15 bg-transparent text-muted-foreground" variant="outline">
 										{tag}
 									</Badge>
 								))}
@@ -75,8 +80,8 @@ export function SnippetList({
 						<button
 							type="button"
 							className={cn(
-								"comic-button mb-3 ml-4 inline-flex h-8 items-center gap-2 bg-background px-3 text-xs font-black uppercase text-muted-foreground",
-								favorite && "bg-primary text-primary-foreground",
+								"snippet-pin mb-3 ml-4 inline-flex h-8 items-center gap-2 px-3 text-xs font-black uppercase text-muted-foreground",
+								favorite && "is-active",
 							)}
 							onClick={() => onToggleFavorite(snippet.slug)}
 							aria-pressed={favorite}

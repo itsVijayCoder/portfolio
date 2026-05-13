@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 	metadataBase: new URL(siteConfig.url),
 	title: {
 		default: siteConfig.title,
-		template: "%s | CodeToon Studios",
+		template: "%s | Vijay",
 	},
 	description: siteConfig.description,
 };

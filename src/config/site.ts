@@ -1,8 +1,8 @@
 export const siteConfig = {
    name: "Vijay",
-   title: "Amazing Coder | Vijay",
+   title: "Vijay | Frontend-focused full-stack developer",
    description:
-      "A sketchy comic-book portfolio for animation-rich frontend, full-stack, cloud, and product engineering work.",
+      "Vijay's creative portfolio for polished interfaces, scalable component systems, and cloud-ready apps.",
    url: "https://vijaysubramanian.me",
    email: "hello@vijay.dev",
    socials: {

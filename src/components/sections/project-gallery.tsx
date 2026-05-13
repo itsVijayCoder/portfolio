@@ -23,8 +23,8 @@ type ProjectGalleryProps = {
 
 export function ProjectGallery({
 	projects,
-	title = "Episode gallery",
-	description = "Projects are framed as case-study episodes with the problem, role, stack, and outcome kept easy to scan.",
+	title = "Selected projects",
+	description = "A focused look at the interfaces, tooling, cloud setup, and animation systems I am building.",
 }: ProjectGalleryProps) {
 	return (
 		<MotionSection className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">

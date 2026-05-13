@@ -14,9 +14,9 @@ import {
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 
 const sceneCards = [
-	{ title: "Intro", meta: "00:01", icon: PlayCircleIcon },
-	{ title: "Build", meta: "02:18", icon: CodeIcon },
-	{ title: "Polish", meta: "04:40", icon: SparklesIcon },
+	{ title: "Design", meta: "systems", icon: PlayCircleIcon },
+	{ title: "Build", meta: "typed UI", icon: CodeIcon },
+	{ title: "Polish", meta: "motion", icon: SparklesIcon },
 ];
 
 export function GsapStudioScene() {
@@ -66,22 +66,23 @@ export function GsapStudioScene() {
 	return (
 		<div
 			ref={rootRef}
-			className="comic-panel relative mx-auto aspect-[4/3] w-full max-w-xl overflow-hidden p-4"
+			className="snippet-surface relative mx-auto aspect-[4/3] w-full max-w-xl overflow-hidden p-4 shadow-[0_22px_80px_rgb(0_0_0_/_0.45)]"
 			aria-label="Animated production studio scene"
 		>
-			<div className="absolute inset-0 studio-grid opacity-80" />
-			<div className="absolute inset-x-0 top-20 h-32 rotate-[-7deg] opacity-70 speed-lines" data-speed-line />
+			<div className="absolute inset-0 studio-grid opacity-70" />
+			<div className="absolute -right-10 top-12 size-44 rounded-full border border-secondary/40" data-speed-line />
+			<div className="absolute inset-x-0 top-20 h-32 rotate-[-7deg] opacity-40 speed-lines" data-speed-line />
 			<div
 				data-scene-piece
-				className="relative z-10 flex h-full flex-col justify-between rounded-[1.1rem] border-2 border-foreground bg-card/95 p-4"
+				className="relative z-10 flex h-full flex-col justify-between border border-foreground/15 bg-card/80 p-4 backdrop-blur"
 			>
 				<div className="flex items-center justify-between gap-3">
-					<div className="comic-button flex items-center gap-2 bg-background px-3 py-1.5 text-xs font-black uppercase">
+					<div className="neo-button flex items-center gap-2 px-3 py-1.5 text-xs font-black uppercase">
 						<span className="size-2 rounded-full bg-primary" />
-						Amazing Coder
+						Vijay
 					</div>
-					<div className="comic-panel-soft rotate-2 bg-secondary px-3 py-1.5 text-xs font-black uppercase">
-						Issue 01
+					<div className="snippet-surface rotate-2 px-3 py-1.5 text-xs font-black uppercase text-secondary">
+						portfolio
 					</div>
 				</div>
 
@@ -89,14 +90,14 @@ export function GsapStudioScene() {
 					<div
 						data-scene-piece
 						data-float
-						className="comic-code min-h-48 p-4 text-background"
+						className="comic-code min-h-48 p-4 text-foreground"
 					>
 						<div className="flex items-center justify-between gap-3">
 							<HugeiconsIcon icon={MagicWand02Icon} strokeWidth={2} />
-							<span className="font-mono text-xs text-background/70">FRAME 24</span>
+							<span className="font-mono text-xs text-foreground/50">FRAME 24</span>
 						</div>
-						<div className="mt-8 max-w-52 font-heading text-4xl font-black uppercase leading-[0.92]">
-							Sketchy UI. Serious code.
+						<div className="mt-8 max-w-52 font-heading text-4xl font-black uppercase leading-[0.92] text-foreground">
+							Craft. clarity. impact.
 						</div>
 					</div>
 					<div className="flex flex-col gap-3">
@@ -104,15 +105,15 @@ export function GsapStudioScene() {
 							<div
 								key={card.title}
 								data-scene-piece
-								className="comic-panel-soft flex items-center justify-between gap-3 p-3 transition-transform hover:-translate-y-1 hover:rotate-1"
+								className="snippet-surface flex items-center justify-between gap-3 p-3 transition-transform hover:-translate-y-1 hover:border-secondary/70"
 							>
 								<div className="flex items-center gap-3">
-									<div className="flex size-9 items-center justify-center rounded-xl border-2 border-foreground bg-secondary">
+									<div className="flex size-9 items-center justify-center border border-secondary/50 bg-secondary/10 text-secondary">
 										<HugeiconsIcon icon={card.icon} strokeWidth={2} />
 									</div>
 									<div>
 										<div className="text-sm font-semibold">{card.title}</div>
-										<div className="font-mono text-xs text-muted-foreground">{card.meta}</div>
+										<div className="font-mono text-xs uppercase text-muted-foreground">{card.meta}</div>
 									</div>
 								</div>
 								<div className="comic-pulse size-3 rounded-full bg-primary" />
@@ -125,7 +126,7 @@ export function GsapStudioScene() {
 					{["Next.js", "React 19", "Cloudflare"].map((label) => (
 						<div
 							key={label}
-							className="rounded-xl border-2 border-foreground bg-secondary px-3 py-2 text-center text-xs font-black uppercase shadow-[3px_3px_0_var(--comic-ink)]"
+							className="border border-foreground/15 bg-background/70 px-3 py-2 text-center text-xs font-black uppercase text-muted-foreground"
 						>
 							{label}
 						</div>

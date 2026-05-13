@@ -3,11 +3,11 @@ import { projectsSchema } from "@/lib/schemas/project.schema";
 export const projects = projectsSchema.parse([
 	{
 		slug: "codetoon-studios-portfolio",
-		title: "CodeToon Studios Portfolio",
+		title: "Vijay Portfolio",
 		summary:
-			"A cartoon-series-inspired developer portfolio with animated story beats and scalable content architecture.",
+			"A creative developer portfolio with kinetic motion, strong content structure, and scalable architecture.",
 		description:
-			"The portfolio itself is designed as an interactive animated series. The home page acts like a studio intro, projects become episodes, and snippets live inside a dashboard-style control room.",
+			"The portfolio is designed around Vijay's own frontend craft. The home page introduces the person and process, projects stay easy to scan, and snippets live inside a bespoke code-desk experience.",
 		role: "Product designer and frontend engineer",
 		stack: ["Next.js", "React 19", "TypeScript", "Tailwind CSS", "GSAP", "Motion"],
 		category: "frontend",
@@ -24,9 +24,9 @@ export const projects = projectsSchema.parse([
 	},
 	{
 		slug: "snippet-control-room",
-		title: "Snippet Control Room",
+		title: "Snippet Code Desk",
 		summary:
-			"A Cloudflare-dashboard-inspired route for searchable, copy-ready engineering snippets.",
+			"A portfolio-branded route for searchable, copy-ready engineering snippets.",
 		description:
 			"A fast utility route for daily development snippets with search, language filters, categories, favorites, and one-click copy feedback.",
 		role: "Frontend architect",
@@ -35,7 +35,7 @@ export const projects = projectsSchema.parse([
 		featured: true,
 		status: "live",
 		highlights: [
-			"Dashboard shell optimized for scanability and keyboard-friendly actions.",
+			"Creative workspace optimized for scanability and keyboard-friendly actions.",
 			"Favorites persisted locally with Zustand.",
 			"Snippet content modeled as typed data so new entries do not touch UI logic.",
 		],
@@ -94,4 +94,3 @@ export function getFeaturedProjects() {
 export function getProjectBySlug(slug: string) {
 	return projects.find((project) => project.slug === slug);
 }
-

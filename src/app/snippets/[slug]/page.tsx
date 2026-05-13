@@ -45,33 +45,33 @@ export default async function SnippetDetailPage({ params }: SnippetPageProps) {
 	}
 
 	return (
-		<main className="comic-dashboard min-h-screen text-foreground">
+		<main className="snippets-studio min-h-screen text-foreground">
 			<div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
 				<Link
 					href="/snippets"
-					className="comic-button mb-8 inline-flex h-10 items-center justify-center gap-2 bg-background px-4 text-sm font-black uppercase"
+					className="neo-button mb-8 inline-flex h-10 items-center justify-center gap-2 px-4 text-sm font-black uppercase"
 				>
 					<HugeiconsIcon icon={ArrowLeft01Icon} strokeWidth={2} />
 					Back to snippets
 				</Link>
 
-				<section className="comic-panel bg-background">
-					<div className="flex flex-col gap-4 border-b-2 border-foreground p-6 md:flex-row md:items-start md:justify-between">
+				<section className="snippet-surface">
+					<div className="flex flex-col gap-4 border-b border-foreground/10 p-6 md:flex-row md:items-start md:justify-between">
 						<div>
 							<div className="mb-3 flex flex-wrap gap-2">
-								<Badge className="border-2 border-foreground font-black uppercase">
+								<Badge className="border border-accent/40 bg-accent/10 font-black uppercase text-accent">
 									{snippet.language}
 								</Badge>
-								<Badge className="border-2 border-foreground font-black uppercase" variant="secondary">
+								<Badge className="border border-secondary/50 bg-secondary/10 font-black uppercase text-secondary" variant="secondary">
 									{snippet.category}
 								</Badge>
 								{snippet.tags.map((tag) => (
-									<Badge key={tag} className="border-2 border-foreground" variant="outline">
+									<Badge key={tag} className="border border-foreground/15 bg-transparent" variant="outline">
 										{tag}
 									</Badge>
 								))}
 							</div>
-							<h1 className="comic-wordmark font-heading text-5xl font-black uppercase">
+							<h1 className="font-heading text-5xl font-black">
 								{snippet.title}
 							</h1>
 							<p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">
@@ -81,12 +81,12 @@ export default async function SnippetDetailPage({ params }: SnippetPageProps) {
 						<CopySnippetButton code={snippet.code} />
 					</div>
 					<div className="p-4 sm:p-6">
-						<pre className="comic-code overflow-x-auto p-5 font-mono text-xs leading-6 text-background">
+						<pre className="comic-code overflow-x-auto p-5 font-mono text-xs leading-6 text-foreground">
 							<code>{snippet.code}</code>
 						</pre>
 						<div className="mt-5 grid gap-3">
 							{snippet.notes.map((note) => (
-								<p key={note} className="comic-panel-soft bg-secondary/70 p-4 text-sm leading-6 text-muted-foreground">
+								<p key={note} className="snippet-surface p-4 text-sm leading-6 text-muted-foreground">
 									{note}
 								</p>
 							))}
